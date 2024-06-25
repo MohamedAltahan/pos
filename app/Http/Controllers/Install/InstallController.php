@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Install;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Throwable;
 use Illuminate\Support\Str;
+use mysqli;
 
 class InstallController extends Controller
 {
-    /**
-     * Check if project is already installed by checking the existance of
-     * .env file then show 404 error
-     */
-    private function isInstalled()
+    protected  $envExamplePath;
+    protected  $envPath;
+
+    function __construct()
     {
-        $envPath = base_path('.env');
-        if (file_exists($envPath)) {
-            abort(404);
-        }
+        $this->envExamplePath = base_path('.env.example');
+        $this->envPath = base_path('.env');
     }
 
     /**
@@ -27,12 +27,23 @@ class InstallController extends Controller
      */
     private function deleteEnv()
     {
-        $envPath = base_path('.env');
-        if ($envPath && file_exists($envPath)) {
-            unlink($envPath);
+        if ($this->envPath && file_exists($this->envPath)) {
+            unlink($this->envPath);
         }
-
         return true;
+    }
+
+    //Generate key, migrate and seed
+    private function runArtisanCommands()
+    {
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '512M');
+
+        DB::statement('SET default_storage_engine=INNODB;');
+        Artisan::call('migrate:fresh', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+        $this->clearCache();
+        //Artisan::call('storage:link');
     }
 
     private function clearCache()
@@ -45,51 +56,65 @@ class InstallController extends Controller
     public function checkSystemRequirements()
     {
         //Check existance of .env file
-        $this->isInstalled();
         return view('install.check-system-requirements');
     }
 
     public function selectInstallOptions()
     {
-        $this->isInstalled();
         return view('install.install-options');
     }
 
-    public function index()
-    {
-        $this->isInstalled();
-        return view('install.index');
-    }
 
-    public function customInstall()
+    public function checkEnvExampleExistance()
     {
-        $this->isInstalled();
         //Check if .env.example is present or not.
         $env_example = base_path('.env.example');
         if (!file_exists($env_example)) {
             exit("<b>.env.example file not found in <code>$env_example</code></b> <br/><br/> -
             In the downloaded codebase you will find .env.example file, please upload it and refresh this page.");
         }
+    }
+
+    public function customInstall()
+    {
+        $this->checkEnvExampleExistance();
         return view('install.custom-install');
     }
 
-    //     public function silentInstall()
-    //     {
-    //         $this->isInstalled();
-    //         //Check if .env.example is present or not.
-    //         $env_example = base_path('.env.example');
-    //         if (!file_exists($env_example)) {
-    //             exit("<b>.env.example file not found in <code>$env_example</code></b> <br/><br/> -
-    //             In the downloaded codebase you will find .env.example file, please upload it and refresh this page.");
-    //         }
-    //         return view('install.details');
-    //     }
+    public function silentInstall(Request $request)
+    {
 
+        $this->checkEnvExampleExistance();
+
+        $request->validate(
+            [
+                'APP_NAME' => 'required',
+            ],
+            [
+                'APP_NAME.required' => 'App Name is required',
+            ]
+        );
+
+        $input = $request->only([
+            'APP_NAME'
+        ]);
+
+        return view('install.install-success');
+    }
+
+    public function sqlSetConfig($userName, $password, $databaseName, $port, $host)
+    {
+        DB::purge('mysql');
+        Config::set('database.connections.mysql.username', $userName);
+        Config::set('database.connections.mysql.password', $password);
+        Config::set('database.connections.mysql.database', $databaseName);
+        Config::set('database.connections.mysql.post', $port);
+        Config::set('database.connections.mysql.host', $host);
+        DB::reconnect('mysql');
+    }
 
     public function saveInstallData(Request $request)
     {
-        $this->isInstalled();
-
         try {
 
             ini_set('max_execution_time', 0);
@@ -120,13 +145,15 @@ class InstallController extends Controller
                 'MAIL_FROM_ADDRESS', 'MAIL_FROM_NAME', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_ENCRYPTION',
                 'MAIL_USERNAME', 'MAIL_PASSWORD', 'APP_URL'
             ]);
-            $input['APP_TIMEZONE'] = 'Africa/Caire';
+            $input['APP_TIMEZONE'] = 'Africa/Cairo';
             $input['APP_DEBUG'] = 'false';
             $input['APP_ENV'] = 'production';
-            $input['APP_KEY'] = 'base64:' . base64_encode(Str::random(32)) . "\n" .
+            $input['APP_KEY'] = 'base64:' . base64_encode(Str::random(32));
 
-                //Check for database details
-                $mysql_link = @mysqli_connect($input['DB_HOST'], $input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT']);
+
+            //Check for database details
+            $mysql_link = new mysqli($input['DB_HOST'], $input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT']);
+
             if (mysqli_connect_errno()) {
                 $msg = '<b>ERROR</b>: Failed to connect to MySQL: ' . mysqli_connect_error();
                 $msg .= "<br/>Provide correct details for 'Database Host', 'Database Port', 'Database Name', 'Database Username', 'Database Password'.";
@@ -136,12 +163,13 @@ class InstallController extends Controller
                     ->with('error', $msg);
             }
 
-            //Get .env file details and write the contents in it.
-            $envPathExample = base_path('.env.example');
-            $envPath = base_path('.env');
-            $env_lines = file($envPathExample);
+            $this->sqlSetConfig($input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT'], $input['DB_HOST']);
 
+            $env_lines = file($this->envExamplePath); //as array
+
+            //user inupt array
             foreach ($input as $index => $value) {
+                //.env example file as lines each line is key and value
                 foreach ($env_lines as $key => $line) {
                     //Check if present then replace it.
                     if (strpos($line, $index) !== false) {
@@ -151,29 +179,24 @@ class InstallController extends Controller
             }
 
             //TODO: Remove false & automate the process of creating .env file.
-            if (false) {
-                // $fp = fopen($envPath, 'w');
-                // fwrite($fp, implode('', $env_lines));
-                // fclose($fp);
+            $openEnvFile = fopen($this->envPath, 'w');
+            //concatinate env array to make final file
+            fwrite($openEnvFile, implode('', $env_lines));
+            fclose($openEnvFile);
 
-                // //Artisan commands
-                // $this->runArtisanCommands();
-
-                // return redirect()->route('install.success');
-            } else {
-                $this->deleteEnv();
-
-                //Show intermediate steps if not able to copy file.
-                $envContent = implode('', $env_lines);
-
-                return view('install.envText')
-                    ->with(compact('envContent', 'envPath'));
-            }
+            //Artisan commands migrations and seeder
+            $this->runArtisanCommands();
+            return redirect()->route('install.success');
         } catch (Throwable $e) {
             $this->deleteEnv();
 
             return redirect()->back()
-                ->with('error', 'Something went wrong, please try again!!');
+                ->with('error', 'Something went wrong, please try again!!' . $e->getMessage());
         }
+    }
+
+    public function installSuccess()
+    {
+        return view('install.install-success');
     }
 }
