@@ -13,6 +13,7 @@
 
                 <div class="box box-primary active">
                     <div class="box-body">
+                        @include('install.layouts.errors')
                         <h3 class="text-success">
                             Welcome to POS Installation!
                         </h3>

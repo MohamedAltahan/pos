@@ -99,19 +99,38 @@ class InstallController extends Controller
             'APP_NAME'
         ]);
 
-        return view('install.install-success');
+        try {
+            $dbName = 'db' . time();
+            DB::statement("create database " . $dbName);
+            DB::statement("ALTER USER 'root'@'localhost' IDENTIFIED BY 'm123456789'");
+            DB::statement("FLUSH PRIVILEGES");
+
+            //check database connection
+            $this->sqlSetConfig('root', 'm123456789', $dbName, '3306', '127.0.0.1');
+
+            //set database configurations
+            $this->sqlSetConfig('root', 'm123456789', $dbName, '3306', '127.0.0.1');
+            $envInputs = [
+                'APP_NAME' => $request->APP_NAME,
+                'APP_KEY' => 'base64:' . base64_encode(Str::random(32)),
+                'DB_DATABASE' => $dbName,
+                'DB_USERNAME' => 'root',
+                'DB_PASSWORD' => 'm123456789'
+
+            ];
+            $this->installEnvFile($envInputs);
+            //Artisan commands migrations and seeder
+            $this->runArtisanCommands();
+            return redirect()->route('install.success');
+        } catch (Throwable $e) {
+            $this->deleteEnv();
+            DB::statement("ALTER USER 'root'@'localhost' IDENTIFIED BY ''");
+            DB::statement("FLUSH PRIVILEGES");
+            return redirect()->back()
+                ->with('error', 'Something went wrong, please try again!!' . $e->getMessage());
+        }
     }
 
-    public function sqlSetConfig($userName, $password, $databaseName, $port, $host)
-    {
-        DB::purge('mysql');
-        Config::set('database.connections.mysql.username', $userName);
-        Config::set('database.connections.mysql.password', $password);
-        Config::set('database.connections.mysql.database', $databaseName);
-        Config::set('database.connections.mysql.post', $port);
-        Config::set('database.connections.mysql.host', $host);
-        DB::reconnect('mysql');
-    }
 
     public function saveInstallData(Request $request)
     {
@@ -145,44 +164,13 @@ class InstallController extends Controller
                 'MAIL_FROM_ADDRESS', 'MAIL_FROM_NAME', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_ENCRYPTION',
                 'MAIL_USERNAME', 'MAIL_PASSWORD', 'APP_URL'
             ]);
-            $input['APP_TIMEZONE'] = 'Africa/Cairo';
-            $input['APP_DEBUG'] = 'false';
-            $input['APP_ENV'] = 'production';
             $input['APP_KEY'] = 'base64:' . base64_encode(Str::random(32));
 
-
-            //Check for database details
-            $mysql_link = new mysqli($input['DB_HOST'], $input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT']);
-
-            if (mysqli_connect_errno()) {
-                $msg = '<b>ERROR</b>: Failed to connect to MySQL: ' . mysqli_connect_error();
-                $msg .= "<br/>Provide correct details for 'Database Host', 'Database Port', 'Database Name', 'Database Username', 'Database Password'.";
-
-                return redirect()
-                    ->back()
-                    ->with('error', $msg);
-            }
-
+            $this->checkDatabaseConnection($input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT'], $input['DB_HOST']);
+            //set database configration
             $this->sqlSetConfig($input['DB_USERNAME'], $input['DB_PASSWORD'], $input['DB_DATABASE'], $input['DB_PORT'], $input['DB_HOST']);
 
-            $env_lines = file($this->envExamplePath); //as array
-
-            //user inupt array
-            foreach ($input as $index => $value) {
-                //.env example file as lines each line is key and value
-                foreach ($env_lines as $key => $line) {
-                    //Check if present then replace it.
-                    if (strpos($line, $index) !== false) {
-                        $env_lines[$key] = $index . '="' . $value . '"' . PHP_EOL;
-                    }
-                }
-            }
-
-            //TODO: Remove false & automate the process of creating .env file.
-            $openEnvFile = fopen($this->envPath, 'w');
-            //concatinate env array to make final file
-            fwrite($openEnvFile, implode('', $env_lines));
-            fclose($openEnvFile);
+            $this->installEnvFile($input);
 
             //Artisan commands migrations and seeder
             $this->runArtisanCommands();
@@ -198,5 +186,52 @@ class InstallController extends Controller
     public function installSuccess()
     {
         return view('install.install-success');
+    }
+
+    public function sqlSetConfig($userName, $password, $databaseName, $port = '3306', $host = '127.0.0.1')
+    {
+        DB::purge('mysql');
+        Config::set('database.connections.mysql.username', $userName);
+        Config::set('database.connections.mysql.password', $password);
+        Config::set('database.connections.mysql.database', $databaseName);
+        Config::set('database.connections.mysql.post', $port);
+        Config::set('database.connections.mysql.host', $host);
+        DB::reconnect('mysql');
+    }
+
+    public function installEnvFile(array $envInputs)
+    {
+
+        $env_lines = file($this->envExamplePath); //as array
+        //user inupt array
+        foreach ($envInputs as $index => $value) {
+            //.env example file as lines each line is key and value
+            foreach ($env_lines as $key => $line) {
+                //Check if present then replace it.
+                if (strpos($line, $index) !== false) {
+                    $env_lines[$key] = $index . '="' . $value . '"' . PHP_EOL;
+                }
+            }
+        }
+
+        $openEnvFile = fopen($this->envPath, 'w');
+        //concatinate env array to make final file
+        fwrite($openEnvFile, implode('', $env_lines));
+        fclose($openEnvFile);
+    }
+
+    public function checkDatabaseConnection($userName, $password, $databaseName, $port = '3306', $host = '127.0.0.1')
+    {
+        //Check for database details
+        new mysqli($userName, $password, $databaseName, $port, $host);
+
+        if (mysqli_connect_errno()) {
+            $msg = '<b>ERROR</b>: Failed to connect to MySQL: ' . mysqli_connect_error();
+            $msg .= "<br/>Provide correct details for 'Database Host', 'Database Port', 'Database Name', 'Database Username', 'Database Password'.";
+
+            return redirect()
+                ->back()
+                ->with('error', $msg);
+        }
     }
 }

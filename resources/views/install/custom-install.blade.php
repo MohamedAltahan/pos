@@ -14,24 +14,9 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        @if (session('error'))
-                            <div class="alert alert-danger">
-                                {!! session('error') !!}
-                            </div>
-                        @endif
+                        @include('errors')
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <form class="form" id="details_form" method="post"
-                            action="{{ route('install.save-instal-data') }}">
+                        <form class="form" id="details_form" method="post" action="{{ route('install.save-instal-data') }}">
                             {{ csrf_field() }}
 
                             <h4>Application Details</h4>
@@ -134,8 +119,8 @@
                             <div class="col-md-4 smtp hide">
                                 <div class="form-group">
                                     <label for="MAIL_HOST">SMTP Host:*</label>
-                                    <input type="text" class="form-control smtp_input" id="MAIL_HOST"
-                                        name="MAIL_HOST" required disabled>
+                                    <input type="text" class="form-control smtp_input" id="MAIL_HOST" name="MAIL_HOST"
+                                        required disabled>
                                 </div>
                             </div>
 
