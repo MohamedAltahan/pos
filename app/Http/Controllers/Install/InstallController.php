@@ -194,7 +194,7 @@ class InstallController extends Controller
         Config::set('database.connections.mysql.username', $userName);
         Config::set('database.connections.mysql.password', $password);
         Config::set('database.connections.mysql.database', $databaseName);
-        Config::set('database.connections.mysql.post', $port);
+        Config::set('database.connections.mysql.port', $port);
         Config::set('database.connections.mysql.host', $host);
         DB::reconnect('mysql');
     }
@@ -223,7 +223,7 @@ class InstallController extends Controller
     public function checkDatabaseConnection($userName, $password, $databaseName, $port = '3306', $host = '127.0.0.1')
     {
         //Check for database details
-        new mysqli($userName, $password, $databaseName, $port, $host);
+        new mysqli($host, $userName, $password, $databaseName, $port);
 
         if (mysqli_connect_errno()) {
             $msg = '<b>ERROR</b>: Failed to connect to MySQL: ' . mysqli_connect_error();

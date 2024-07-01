@@ -14,7 +14,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        @include('errors')
+                        @include('install.layouts.errors')
 
                         <form class="form" id="details_form" method="post" action="{{ route('install.save-instal-data') }}">
                             {{ csrf_field() }}
@@ -37,8 +37,6 @@
                                         value="{{ url('/') }}" placeholder="Name" required>
                                 </div>
                             </div>
-
-
 
                             <div class="clearfix"></div>
 

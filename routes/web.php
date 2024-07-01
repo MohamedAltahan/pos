@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Install\InstallController;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::group(['prefix' => 'install', 'as' => 'install.', 'middleware' => 'isInstalled'], function () {
@@ -18,4 +18,5 @@ Route::get('/install/success', [InstallController::class, 'installSuccess'])->na
 Route::group(['middleware' => 'shouldInstall'], function () {
     Route::get('/', function () {
     });
+    require __DIR__ . '/auth.php';
 });
