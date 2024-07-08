@@ -1,4 +1,4 @@
-@extends('layouts.vertical', ['page_title' => 'Dashboard', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
+@extends('admin.layouts.vertical', ['page_title' => 'Dashboard', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('css')
     @vite(['node_modules/daterangepicker/daterangepicker.css', 'node_modules/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css'])
@@ -131,7 +131,8 @@
                     <div class="d-flex card-header justify-content-between align-items-center">
                         <h4 class="header-title">Revenue</h4>
                         <div class="dropdown">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i class="ri-more-2-fill"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -177,7 +178,7 @@
                         </div>
                     </div>
                     <div class="card-body pt-0">
-                        <div >
+                        <div>
                             <div id="revenue-chart" class="apex-charts mt-3" data-colors="#3e60d5,#47ad77"></div>
                         </div>
                     </div> <!-- end card-body-->
@@ -188,7 +189,8 @@
                     <div class="d-flex card-header justify-content-between align-items-center">
                         <h4 class="header-title">Total Sales</h4>
                         <div class="dropdown">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i class="ri-more-2-fill"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -205,18 +207,21 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="alert alert-warning rounded-0 mb-0 border-end-0 border-start-0" role="alert">
-                            Something went wrong. Please <strong><a href="#!" class="alert-link text-decoration-underline">refresh</a></strong> to get new data!
+                            Something went wrong. Please <strong><a href="#!"
+                                    class="alert-link text-decoration-underline">refresh</a></strong> to get new data!
                         </div>
                     </div>
 
                     <div class="card-body pt-0">
-                        <div id="average-sales" class="apex-charts mb-3" data-colors="#3e60d5,#47ad77,#fa5c7c,#16a7e9"></div>
+                        <div id="average-sales" class="apex-charts mb-3" data-colors="#3e60d5,#47ad77,#fa5c7c,#16a7e9">
+                        </div>
 
                         <h5 class="mb-1 mt-0 fw-normal">Brooklyn, New York</h5>
                         <div class="progress-w-percent">
                             <span class="progress-value fw-bold">72k </span>
                             <div class="progress progress-sm">
-                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
 
@@ -224,7 +229,8 @@
                         <div class="progress-w-percent">
                             <span class="progress-value fw-bold">39k </span>
                             <div class="progress progress-sm">
-                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
 
@@ -232,7 +238,8 @@
                         <div class="progress-w-percent mb-0">
                             <span class="progress-value fw-bold">61k </span>
                             <div class="progress progress-sm">
-                                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: 61%;" aria-valuenow="61"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div> <!-- end card-body-->
@@ -247,7 +254,8 @@
                 <div class="card">
                     <div class="d-flex card-header justify-content-between align-items-center">
                         <h4 class="header-title">Top Selling Products</h4>
-                        <a href="javascript:void(0);" class="btn btn-sm btn-info">Export <i class="ri-download-line ms-1"></i></a>
+                        <a href="javascript:void(0);" class="btn btn-sm btn-info">Export <i
+                                class="ri-download-line ms-1"></i></a>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -319,7 +327,8 @@
                     <div class="d-flex card-header justify-content-between align-items-center">
                         <h4 class="header-title">Revenue By Locations</h4>
                         <div class="dropdown">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i class="ri-more-2-fill"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -341,7 +350,7 @@
                                 <div id="world-map-markers" class="mt-3 mb-3" style="height: 298px">
                                 </div>
                             </div>
-                            <div class="col-lg-4" >
+                            <div class="col-lg-4">
                                 <div id="country-chart" class="apex-charts" data-colors="#47ad77"></div>
                             </div>
                         </div>

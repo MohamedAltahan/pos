@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    @include('layouts.shared/title-meta', ['title' => $page_title])
-    @yield('css')
-    @include('layouts.shared/head-css', ['mode' => $mode ?? '', 'demo' => $demo ?? ''])
+    <head>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        @include('admin.layouts.shared/title-meta', ['title' => $page_title])
+        @yield('css')
+        @vite(['resources/scss/app.scss', 'resources/scss/icons.scss'])
+        @vite(['resources/js/head.js'])
+    </head>
 
-    @vite(['resources/js/head.js'])
-</head>
+    <body>
+        <div class="wrapper">
 
-<body>
-    <div class="wrapper">
+            @include('admin.layouts.shared/topbar')
+            @include('admin.layouts.shared/left-sidebar')
 
-        @include('layouts.shared/topbar')
+            <!-- Start Page Content here -->
+            <div class="content-page">
 
-        @include('layouts.shared/left-sidebar')
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
-        <div class="content-page">
-            <div class="content">
-                <!-- Start Content-->
-                @yield('content')
+                <div class="content">
+                    @yield('content')
+                </div>
+                @include('admin.layouts.shared/footer')
             </div>
-            @include('layouts.shared/footer')
+
         </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+        @include('admin.layouts.shared/right-sidebar')
+        @yield('script-bottom')
+        @vite(['resources/js/app.js', 'resources/js/layout.js'])
+        @yield('script')
 
-    </div>
-
-    @include('layouts.shared/right-sidebar')
-    @include('layouts.shared/footer-script')
-    @vite(['resources/js/app.js', 'resources/js/layout.js'])
-    @yield('script')
-
-</body>
+    </body>
 
 </html>

@@ -122,45 +122,11 @@
                 </div>
             </li>
 
-            <li class="dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="false" aria-expanded="false">
-                    <img src="/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
-                    <span class="align-middle d-none d-lg-inline-block">English</span> <i
-                        class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
 
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">Russian</span>
-                    </a>
-
-                </div>
-            </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
-                    role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
                     <i class="ri-notification-3-line fs-22"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -180,7 +146,6 @@
 
                     <div style="max-height: 300px;" data-simplebar>
 
-                        <h5 class="text-muted fs-12 fw-bold p-2 text-uppercase mb-0">Today</h5>
                         <!-- item-->
 
                         <a href="javascript:void(0);"
@@ -197,89 +162,6 @@
                                                 class="fw-normal text-muted float-end ms-1">1 min ago</small></h5>
                                         <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on
                                             Admin</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);"
-                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="notify-icon bg-info">
-                                            <i class="ri-user-add-line fs-18"></i>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-semibold fs-14">Admin <small
-                                                class="fw-normal text-muted float-end ms-1">1 hr ago</small></h5>
-                                        <small class="noti-item-subtitle text-muted">New user registered</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">Yesterday</h5>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);"
-                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="notify-icon">
-                                            <img src="/images/users/avatar-2.jpg" class="img-fluid rounded-circle"
-                                                alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-semibold fs-14">Cristina Pride <small
-                                                class="fw-normal text-muted float-end ms-1">1 day ago</small></h5>
-                                        <small class="noti-item-subtitle text-muted">Hi, How are you? What about our
-                                            next meeting</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">31 Jan 2023</h5>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);"
-                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="notify-icon bg-primary">
-                                            <i class="ri-discuss-line fs-18"></i>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-semibold fs-14">Datacorp</h5>
-                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on
-                                            Admin</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);"
-                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="notify-icon">
-                                            <img src="/images/users/avatar-4.jpg" class="img-fluid rounded-circle"
-                                                alt="" />
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-semibold fs-14">Karen Robinson</h5>
-                                        <small class="noti-item-subtitle text-muted">Wow ! this admin looks good and
-                                            awesome design</small>
                                     </div>
                                 </div>
                             </div>
@@ -310,40 +192,8 @@
                                     <span>GitHub</span>
                                 </a>
                             </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/bitbucket.png" alt="bitbucket">
-                                    <span>Bitbucket</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/dropbox.png" alt="dropbox">
-                                    <span>Dropbox</span>
-                                </a>
-                            </div>
                         </div>
 
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/slack.png" alt="slack">
-                                    <span>Slack</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/dribbble.png" alt="dribbble">
-                                    <span>Dribbble</span>
-                                </a>
-                            </div>
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/behance.png" alt="Behance">
-                                    <span>Behance</span>
-                                </a>
-                            </div>
-                        </div> <!-- end row-->
                     </div>
 
                 </div>
@@ -362,7 +212,6 @@
                 </div>
             </li>
 
-
             <li class="d-none d-md-inline-block">
                 <a class="nav-link" href="" data-toggle="fullscreen">
                     <i class="ri-fullscreen-line fs-22"></i>
@@ -380,38 +229,18 @@
                         <h5 class="my-0">
                             {{ auth()->user()->name }}
                         </h5>
-                        <h6 class="my-0 fw-normal">Founder</h6>
+
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
-                    <!-- item-->
-                    <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Welcome !</h6>
-                    </div>
+
 
                     <!-- item-->
-                    <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
+                    <a href="" class="dropdown-item">
                         <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                         <span>My Account</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="{{ route('second', ['pages', 'profile']) }}" class="dropdown-item">
-                        <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
-                        <span>Settings</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="{{ route('second', ['pages', 'faq']) }}" class="dropdown-item">
-                        <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
-                        <span>Support</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="{{ route('second', ['auth', 'lock-screen']) }}" class="dropdown-item">
-                        <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
-                        <span>Lock Screen</span>
-                    </a>
 
                     <!-- item-->
                     <form method="POST" action="{{ route('logout') }}">
