@@ -1,258 +1,163 @@
-<!-- ========== Topbar Start ========== -->
-<div class="navbar-custom">
-    <div class="topbar container-fluid">
-        <div class="d-flex align-items-center gap-lg-2 gap-1">
-
-            <!-- Topbar Brand Logo -->
-            <div class="logo-topbar">
-                <!-- Logo light -->
-                <a href="/" class="logo-light">
-                    <span class="logo-lg">
-                        <img src="/images/logo.png" alt="logo">
-                    </span>
-                    <span class="logo-sm">
-                        <img src="/images/logo-sm.png" alt="small logo">
-                    </span>
-                </a>
-
-                <!-- Logo Dark -->
-                <a href="/" class="logo-dark">
-                    <span class="logo-lg">
-                        <img src="/images/logo-dark.png" alt="dark logo">
-                    </span>
-                    <span class="logo-sm">
-                        <img src="/images/logo-sm.png" alt="small logo">
-                    </span>
+        <!-- [ Header ] start -->
+        <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+            <div class="m-header">
+                <a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
+                <a href="index.html" class="b-brand">
+                    <!-- <div class="b-bg">
+                    <i class="fas fa-bolt"></i>
+                    </div>
+                    <span class="b-title">Dasho</span> -->
+                    <img src="assets/images/logo.svg" alt="" class="logo images">
+                    <img src="assets/images/logo-icon.svg" alt="" class="logo-thumb images">
                 </a>
             </div>
-
-            <!-- Sidebar Menu Toggle Button -->
-            <button class="button-toggle-menu">
-                <i class="ri-menu-2-fill"></i>
-            </button>
-
-            <!-- Horizontal Menu Toggle Button -->
-            <button class="navbar-toggle" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
-                <div class="lines">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-
-            <!-- Topbar Search Form -->
-            <div class="app-search dropdown d-none d-lg-block">
-                <form>
-                    <div class="input-group">
-                        <input type="search" class="form-control dropdown-toggle" placeholder="Search..."
-                            id="top-search">
-                        <span class="ri-search-line search-icon"></span>
-                    </div>
-                </form>
-
-                <div class="dropdown-menu dropdown-menu-animated dropdown-lg" id="search-dropdown">
-                    <!-- item-->
-                    <div class="dropdown-header noti-title">
-                        <h5 class="text-overflow mb-1">Found <b class="text-decoration-underline">08</b> results</h5>
-                    </div>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="ri-file-chart-line fs-16 me-1"></i>
-                        <span>Analytics Report</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="ri-lifebuoy-line fs-16 me-1"></i>
-                        <span>How can I help you?</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="ri-user-settings-line fs-16 me-1"></i>
-                        <span>User profile settings</span>
-                    </a>
-
-                    <!-- item-->
-                    <div class="dropdown-header noti-title">
-                        <h6 class="text-overflow mt-2 mb-1 text-uppercase">Users</h6>
-                    </div>
-
-                    <div class="notification-list">
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <div class="d-flex">
-                                <img class="d-flex me-2 rounded-circle" src="/images/users/avatar-2.jpg"
-                                    alt="Generic placeholder image" height="32">
-                                <div class="w-100">
-                                    <h5 class="m-0 fs-14">Erwin Brown</h5>
-                                    <span class="fs-12 mb-0">UI Designer</span>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <div class="d-flex">
-                                <img class="d-flex me-2 rounded-circle" src="/images/users/avatar-5.jpg"
-                                    alt="Generic placeholder image" height="32">
-                                <div class="w-100">
-                                    <h5 class="m-0 fs-14">Jacob Deo</h5>
-                                    <span class="fs-12 mb-0">Developer</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <ul class="topbar-menu d-flex align-items-center gap-3">
-            <li class="dropdown d-lg-none">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="false" aria-expanded="false">
-                    <i class="ri-search-line fs-22"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
-                    <form class="p-3">
-                        <input type="search" class="form-control" placeholder="Search ..."
-                            aria-label="Recipient's username">
-                    </form>
-                </div>
-            </li>
-
-
-
-            <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="false" aria-expanded="false">
-                    <i class="ri-notification-3-line fs-22"></i>
-                    <span class="noti-icon-badge"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg py-0">
-                    <div class="p-2 border-top-0 border-start-0 border-end-0 border-dashed border">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h6 class="m-0 fs-16 fw-semibold"> Notification</h6>
-                            </div>
-                            <div class="col-auto">
-                                <a href="javascript: void(0);" class="text-dark text-decoration-underline">
-                                    <small>Clear All</small>
+            <a class="mobile-menu" id="mobile-header" href="#!">
+                <i class="feather icon-more-horizontal"></i>
+            </a>
+            <div class="collapse navbar-collapse">
+                <a href="#!" class="mob-toggler"></a>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <div class="main-search open">
+                            <div class="input-group">
+                                <input type="text" id="m-search" class="form-control" placeholder="Search . . .">
+                                <a href="#!" class="input-group-append search-close">
+                                    <i class="feather icon-x input-group-text"></i>
                                 </a>
+                                <span class="input-group-append search-btn btn btn-primary">
+                                    <i class="feather icon-search input-group-text"></i>
+                                </span>
                             </div>
                         </div>
-                    </div>
-
-                    <div style="max-height: 300px;" data-simplebar>
-
-                        <!-- item-->
-
-                        <a href="javascript:void(0);"
-                            class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="notify-icon bg-primary">
-                                            <i class="ri-message-3-line fs-18"></i>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                                    class="icon feather icon-bell"></i></a>
+                            <div class="dropdown-menu dropdown-menu-end notification">
+                                <div class="noti-head">
+                                    <h6 class="d-inline-block m-b-0">Notifications</h6>
+                                    <div class="float-end">
+                                        <a href="#!" class="m-r-10">mark as read</a>
+                                        <a href="#!">clear all</a>
+                                    </div>
+                                </div>
+                                <ul class="noti-body">
+                                    <li class="n-title">
+                                        <p class="m-b-0">NEW</p>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-1.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>John Doe</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>5 min</span></p>
+                                                <p>New ticket Added</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-semibold fs-14">Datacorp <small
-                                                class="fw-normal text-muted float-end ms-1">1 min ago</small></h5>
-                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on
-                                            Admin</small>
-                                    </div>
+                                    </li>
+                                    <li class="n-title">
+                                        <p class="m-b-0">EARLIER</p>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-2.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>10 min</span>
+                                                </p>
+                                                <p>Prchace New Theme and make payment</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-3.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>12 min</span>
+                                                </p>
+                                                <p>currently login</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-1.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>30 min</span>
+                                                </p>
+                                                <p>Prchace New Theme and make payment</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-3.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>1 hour</span>
+                                                </p>
+                                                <p>currently login</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="notification">
+                                        <div class="d-flex">
+                                            <img class="img-radius" src="assets/images/user/avatar-1.jpg"
+                                                alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <p><strong>Joseph William</strong><span class="n-time text-muted"><i
+                                                            class="icon feather icon-clock m-r-10"></i>2 hour</span>
+                                                </p>
+                                                <p>Prchace New Theme and make payment</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="noti-footer">
+                                    <a href="#!">show all</a>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-
-                    <!-- All-->
-                    <a href="javascript:void(0);"
-                        class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
-                        View All
-                    </a>
-
-                </div>
-            </li>
-
-            <li class="dropdown d-none d-sm-inline-block">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
-                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="ri-apps-2-line fs-22"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0">
-
-                    <div class="p-2">
-                        <div class="row g-0">
-                            <div class="col">
-                                <a class="dropdown-icon-item" href="#">
-                                    <img src="/images/brands/github.png" alt="Github">
-                                    <span>GitHub</span>
-                                </a>
+                        </div>
+                    </li>
+                    <li><a href="#!" class="displayChatbox"><i class="icon feather icon-mail"></i></a></li>
+                    <li>
+                        <div class="dropdown drp-user">
+                            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="icon feather icon-settings"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end profile-notification">
+                                <div class="pro-head">
+                                    <img src="assets/images/user/avatar-1.jpg" class="img-radius"
+                                        alt="User-Profile-Image">
+                                    <span>John Doe</span>
+                                    <a href="auth-signin.html" class="dud-logout" title="Logout">
+                                        <i class="feather icon-log-out"></i>
+                                    </a>
+                                </div>
+                                <ul class="pro-body">
+                                    <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i>
+                                            Settings</a></li>
+                                    <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i>
+                                            Profile</a></li>
+                                    <li><a href="message.html" class="dropdown-item"><i
+                                                class="feather icon-mail"></i> My Messages</a></li>
+                                    <li><a href="auth-signin.html" class="dropdown-item"><i
+                                                class="feather icon-lock"></i> Lock Screen</a></li>
+                                </ul>
                             </div>
                         </div>
-
-                    </div>
-
-                </div>
-            </li>
-
-            <li class="d-none d-sm-inline-block">
-                <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
-                    <i class="ri-settings-3-line fs-22"></i>
-                </a>
-            </li>
-
-            <li class="d-none d-sm-inline-block">
-                <div class="nav-link" id="light-dark-mode" data-bs-toggle="tooltip" data-bs-placement="left"
-                    title="Theme Mode">
-                    <i class="ri-moon-line fs-22"></i>
-                </div>
-            </li>
-
-            <li class="d-none d-md-inline-block">
-                <a class="nav-link" href="" data-toggle="fullscreen">
-                    <i class="ri-fullscreen-line fs-22"></i>
-                </a>
-            </li>
-
-            <li class="dropdown">
-                <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#"
-                    role="button" aria-haspopup="false" aria-expanded="false">
-                    <span class="account-user-avatar">
-                        <img src="/images/users/avatar-1.jpg" alt="user-image" width="32"
-                            class="rounded-circle">
-                    </span>
-                    <span class="d-lg-flex flex-column gap-1 d-none">
-                        <h5 class="my-0">
-                            {{ auth()->user()->name }}
-                        </h5>
-
-                    </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
-
-
-                    <!-- item-->
-                    <a href="" class="dropdown-item">
-                        <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
-                        <span>My Account</span>
-                    </a>
-
-
-                    <!-- item-->
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a onclick="event.preventDefault(); this.closest('form').submit();" class="dropdown-item">
-                            <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
-                            <span>Logout</span>
-                        </a>
-                    </form>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- ========== Topbar End ========== -->
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!-- [ Header ] end -->

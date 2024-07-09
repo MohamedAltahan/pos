@@ -1,8 +1,8 @@
 <form method="POST" wire:submit.prevent='submit'>
     @csrf
     <div class="mb-3">
-        <label for="emailaddress" class="form-label">Email address</label>
-        <input class="form-control" type="email" id="emailaddress" placeholder="Enter your email" autofocus
+        <label for="emailaddress" class="form-label">Username</label>
+        <input class="form-control" type="email" id="emailaddress" placeholder="Enter your username" autofocus
             wire:model='email' value="" name="email">
 
         <x-form.error name='email' message={{ $message }} />

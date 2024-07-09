@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('site_name')->nullable();
+            $table->string('company_name');
+            $table->string('logo')->nullable();
+            $table->string('address')->nullable();
             $table->string('layout')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('currency')->nullable();
+            $table->string('currency');
             $table->text('map')->nullable();
-            $table->string('time_zone')->nullable();
+            $table->string('time_zone');
             $table->string('currency_symbol')->nullable();
             $table->timestamps();
         });

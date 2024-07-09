@@ -1,103 +1,58 @@
-<!-- ========== Left Sidebar Start ========== -->
-<div class="leftside-menu">
-    <div class="row">
-        <span class="col-md-1">
-            <!-- Brand Logo Light -->
-            <a href="" class="logo logo-light">
-                <span class="logo-lg">
-                    <img src="/images/logo.png" alt="logo">
-                </span>
-                <span class="logo-sm">
-                    <img src="/images/logo-sm.png" alt="small logo">
-                </span>
-            </a>
-        </span>
-
-        <div class="col-md-1">
-            <li class="dropdown text-center">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="false" aria-expanded="false">
-                    <img src="/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
-                    <span class="align-middle d-none d-lg-inline-block"></span> <i
-                        class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
-                            class="align-middle">German</span>
+        <!-- [ navigation menu ] start -->
+        <nav class="pcoded-navbar menu-light brand-blue active-blue">
+            <div class="navbar-wrapper">
+                <div class="navbar-brand header-logo">
+                    <a href="index.html" class="b-brand">
+                        <div class="b-bg">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="b-title">Dasho</span>
+                        <img src="assets/images/logo.svg" alt="" class="logo images">
+                        <img src="assets/images/logo-icon.svg" alt="" class="logo-thumb images">
                     </a>
+                    <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
                 </div>
-            </li>
-        </div>
+                <div class="navbar-content scroll-div">
+                    <ul class="nav pcoded-inner-navbar">
 
-    </div>
-    <!-- Brand Logo Dark -->
-    <a href="" class="logo logo-dark">
-        <span class="logo-lg">
-            <img src="/images/logo-dark.png" alt="logo">
-        </span>
-        <span class="logo-sm">
-            <img src="/images/logo-sm.png" alt="small logo">
-        </span>
-    </a>
+                        {{-- <li class="nav-item pcoded-menu-caption">
+                            <label>Navigation</label>
+                        </li> --}}
 
-    <!-- Sidebar Hover Menu Toggle Button -->
-    <div class="button-sm-hover" data-bs-toggle="tooltip" data-bs-placement="right" title="Show Full Sidebar">
-        <i class="ri-checkbox-blank-circle-line align-middle"></i>
-    </div>
-
-    <!-- Full Sidebar Menu Close Button -->
-    <div class="button-close-fullsidebar">
-        <i class="ri-close-fill align-middle"></i>
-    </div>
-
-    <!-- Sidebar -left -->
-    <div class="h-100" id="leftside-menu-container" data-simplebar>
-        <!--- Sidemenu -->
-        <ul class="side-nav">
-
-            <li class="side-nav-title">Navigation</li>
-
-            <li class="side-nav-item menuitem-active">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
-                    aria-controls="sidebarDashboards" class="side-nav-link">
-                    <i class="ri-home-4-line"></i>
-                    <span> Dashboards </span>
-                </a>
-                <div class="collapse " id="sidebarDashboards">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="{{ route('admin.home') }}">Home</a>
+                        <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
+                            class="nav-item active">
+                            <a href="{{ route('admin.home') }}" class="nav-link"><span class="pcoded-micon"><i
+                                        class="feather icon-home"></i></span><span
+                                    class="pcoded-mtext">{{ __('Home') }}</span></a>
                         </li>
-                        <li>
-                            <a href="{{ route('admin.setting.update') }}">Setting</a>
+
+                        <li data-username="Menu levels Menu level 2.1 Menu level 2.2" class="nav-item pcoded-hasmenu">
+                            <a href="#!" class="nav-link"><span class="pcoded-micon"><i
+                                        class="feather icon-menu"></i></span><span
+                                    class="pcoded-mtext">{{ __('Setting') }}</span></a>
+                            <ul class="pcoded-submenu">
+                                <li class=""><a href="{{ route('admin.setting.update') }}"
+                                        class="">{{ __('Business') }}</a></li>
+                                {{-- <li class="pcoded-hasmenu">
+                                    <a href="#!" class="">Menu level 2.2</a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=""><a href="" class="">Menu level 3.1</a></li>
+                                    </ul>
+                                </li> --}}
+                            </ul>
                         </li>
+
+                        {{-- <li data-username="Menu levels Menu level 2.1 Menu level 2.2" class="nav-item pcoded-hasmenu">
+                            <a href="#!" class="nav-link"><span class="pcoded-micon"><i
+                                        class="feather icon-menu"></i></span><span
+                                    class="pcoded-mtext">{{ __('Setting') }}</span></a>
+                            <ul class="pcoded-submenu">
+                                <li class=""><a href="" class="">{{ __('bussiness') }}</a></li>
+                            </ul>
+                        </li> --}}
+
                     </ul>
                 </div>
-            </li>
-
-            <li class="side-nav-item ">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
-                    aria-controls="sidebarDashboards" class="side-nav-link">
-                    <i class="ri-home-4-line"></i>
-                    <span> Dashboards </span>
-                </a>
-                <div class="collapse " id="sidebarDashboards">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="{{ route('admin.home') }}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.setting.update') }}">Setting</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-        </ul>
-        <!--- End Sidemenu -->
-
-        <div class="clearfix"></div>
-    </div>
-</div>
+            </div>
+        </nav>
+        <!-- [ navigation menu ] end -->
