@@ -21,7 +21,7 @@
 
                         <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
                             class="nav-item active">
-                            <a href="{{ route('admin.home') }}" class="nav-link"><span class="pcoded-micon"><i
+                            <a href="{{ route('home') }}" class="nav-link"><span class="pcoded-micon"><i
                                         class="feather icon-home"></i></span><span
                                     class="pcoded-mtext">{{ __('Home') }}</span></a>
                         </li>
@@ -31,7 +31,7 @@
                                         class="feather icon-menu"></i></span><span
                                     class="pcoded-mtext">{{ __('Setting') }}</span></a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="{{ route('admin.setting.update') }}"
+                                <li class=""><a href="{{ route('setting.business') }}"
                                         class="">{{ __('Business') }}</a></li>
                                 {{-- <li class="pcoded-hasmenu">
                                     <a href="#!" class="">Menu level 2.2</a>

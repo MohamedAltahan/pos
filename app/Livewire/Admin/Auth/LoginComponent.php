@@ -38,7 +38,7 @@ class LoginComponent extends Component
             ]);
         };
 
-        return to_route('admin.home');
+        return to_route('home');
     }
 
     public function render()
