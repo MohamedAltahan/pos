@@ -1,6 +1,14 @@
-@props(['type' => 'text', 'name' => '', 'value' => '', 'class' => '', 'label' => '', 'placeholder' => ''])
+@props([
+    'type' => 'text',
+    'name' => '',
+    'value' => '',
+    'class' => '',
+    'label' => '',
+    'placeholder' => '',
+    'id' => '',
+])
 @if ($label)
-    <label for="">{{ __($label) }}</label>
+    <label for="{{ $id }}">{{ __($label) }}</label>
 @endif
 
 <input type="{{ $type }}" name="{{ $name }}" value='{{ old($name, $value) }}'

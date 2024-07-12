@@ -20,13 +20,10 @@ Route::get('/install/success', [InstallController::class, 'installSuccess'])->na
 
 Route::middleware(['shouldInstall', 'auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::resource('business', BusinessController::class);
 });
 
 Route::middleware(['shouldInstall'])->group(function () {
-    Route::get('setting/business', function () {
-        return view('admin.business.setting');
-    })->name('setting.business');
+    Route::get('business/setting', [BusinessController::class, 'getBusinessSetting'])->name('business.setting');
 });
 
 require __DIR__ . '/auth.php';

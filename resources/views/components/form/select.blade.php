@@ -1,12 +1,11 @@
 @props(['name' => '', 'options', 'selected' => '', 'class' => '', 'label' => ''])
 @if ($label)
-    <label for="">{{ $label }}</label>
+    <label for="">{{ __($label) }}</label>
 @endif
 <select name="{{ $name }}" class="form-control {{ $class }}" {{ $attributes }}>
 
-
-    @foreach ($options as $value => $text)
-        <option value="{{ $value }}" @selected($value == $selected)>{{ $text }}</option>
+    @foreach ($options as $key => $value)
+        <option value="{{ $key }}" @selected($key == $selected)>{{ __($value) }}</option>
     @endforeach
 
     @error($name)

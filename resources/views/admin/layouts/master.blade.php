@@ -25,6 +25,9 @@
         <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/plugins/animation/css/animate.min.css">
         <!-- vendor css -->
         <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/css/style.css">
+
+        {{-- <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/css/plugins/notifier.css"> --}}
+        @stack('styles')
     </head>
 
     <body class="layout-3">
@@ -68,6 +71,11 @@
         <script src="{{ asset('dashboard/assets') }}/js/vendor-all.min.js"></script>
         <script src="{{ asset('dashboard/assets') }}/plugins/bootstrap/js/bootstrap.min.js"></script>
         <script src="{{ asset('dashboard/assets') }}/js/pcoded.min.js"></script>
+
+        <!-- notification Js -->
+        {{-- <script src="{{ asset('dashboard/assets') }}/js/plugins/notifier.js"></script>
+        <script src="{{ asset('dashboard/assets') }}/js/pages/ac-notification.js"></script> --}}
+        @stack('scripts')
     </body>
 
 </html>

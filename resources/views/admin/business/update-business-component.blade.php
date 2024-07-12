@@ -1,7 +1,7 @@
 <div class="col-sm-12">
     <h5 class="mt-4">Vertical Pills</h5>
     <hr>
-    <form wire:submit.prevent='submit' method="POST">
+    <form wire:submit.prevent='submit' method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">

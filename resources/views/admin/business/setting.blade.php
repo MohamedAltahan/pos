@@ -19,6 +19,6 @@
     </div>
     <!-- [ breadcrumb ] end -->
 
+    @livewire('admin.business.update-business-component')
 
-    @livewire('admin.business.business-component')
 @endsection

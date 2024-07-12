@@ -229,5 +229,18 @@
     "Select time zone": "اختار المنطقة الزمنية",
     "Select currency": "اختار العملة",
     "Currency symbol": "رمز العملة (الرمز المختصر)",
-    "required": "هذا الحقل مطلوب"
+    "required": "هذا الحقل مطلوب",
+    "Select date format": "اختار تنسيق التاريخ",
+    "Select time format": "اختار تنسيق الوقت",
+    "Business start date": "تاريخ بداية النشاط",
+    "12 hours": "12 ساعة",
+    "24 hours": "24 ساعة",
+    "dd/mm/yyyy": "سنة / شهر / يوم",
+    "mm/dd/yyyy": "سنة / يوم / شهر",
+    "mm-dd-yyyy": "سنة - يوم - شهر",
+    "dd-mm-yyyy": "سنة - شهر - يوم",
+    "Upload buisness logo": "اختار شعار الشركة",
+    "Currency precision": "عدد الارقام بعد العلامة العشرية للعملة",
+    "Quantity precision": "عدد الارقام بعد العلامة العشرية للكميات",
+    "Saved successfully": "تم الحفظ بنجاح"
 }
