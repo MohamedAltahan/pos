@@ -1,10 +1,27 @@
-<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+<div class="tab-pane fade show active"wire:ignore.self id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
     <div class="row align-items-end">
 
         <div class="form-group col-md-4">
             <span>*</span>
             <x-form.input wire:model='business.name' name='business.name' label='Business name'
                 placeholder='Business name' />
+        </div>
+
+        {{-- upload logo and preview --}}
+        <div class="form-group col-md-4">
+            @if ($logo == null)
+                Logo preview:
+                <img src="{{ asset('uploads/' . $business->logo) }}" width="120">
+                {{-- preview images only --}}
+            @elseif(in_array($logo->extension(), config('livewire.temporary_file_upload.preview_mimes')))
+                Logo preview:
+                <img src="{{ $logo->temporaryUrl() }}" width="120">
+            @endif
+            <div wire:loading wire:target='logo' class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <x-form.input accept="image/*" wire:model.live='logo' name='logo' type="file"
+                label="Upload buisness logo" />
         </div>
 
         <div class="form-group col-md-4">
@@ -22,38 +39,33 @@
                 :options="['12' => __('12 hours'), '24' => __('24 hours')]" />
         </div>
 
-        <div class="form-group col-md-4">
-            <x-form.input wire:model='business.logo' name='business.logo' type="file" label="Upload buisness logo" />
-        </div>
 
         <div class="form-group col-md-4">
             <x-form.input wire:model='business.start_date' name='business.start_date' label="Business start date"
-                value="{{ date('d-m-Y') }}" id="pc-datepicker-3" readonly />
+                type="date" />
+        </div>
+
+
+        <div class="form-group col-md-4">
+            <x-form.input wire:model='business.phone' name='business.phone' label='Phone' placeholder='Phone' />
         </div>
 
         <div class="form-group col-md-4">
-            <x-form.input wire:model='business.phone' name='business.phone' label='Phone'
-                value="{{ @$setting->phone }}" placeholder='Phone' />
+            <x-form.input wire:model='business.email' name='business.email' label='Email' placeholder='Email' />
         </div>
 
         <div class="form-group col-md-4">
-            <x-form.input wire:model='business.email' name='business.email' label='Email'
-                value="{{ @$setting->email }}" placeholder='Email' />
-        </div>
-
-        <div class="form-group col-md-4">
-            <x-form.input wire:model='business.address' name='business.address' label='Address'
-                value="{{ @$setting->address }}" placeholder='Address' />
+            <x-form.input wire:model='business.address' name='business.address' label='Address' placeholder='Address' />
         </div>
 
         <div class="form-group col-md-4">
             <x-form.input wire:model='business.map' name='business.map' label='Map on google'
-                value="{{ @$setting->map }}" placeholder='Map on google' />
+                placeholder='Map on google' />
         </div>
 
         <div class="form-group col-md-4">
             <x-form.input wire:model='business.currency_symbol' name='business.currency_symbol' name="currency_symbol"
-                label='Currency symbol' value="{{ @$setting->currency_symbol }}" placeholder='Currency symbol' />
+                label='Currency symbol' placeholder='Currency symbol' />
         </div>
 
 
@@ -67,7 +79,6 @@
             <x-form.select wire:model='business.layout' name='business.layout' label="Layout direction"
                 :options="['ltr' => 'LTR', 'rtl' => 'RTL']" />
         </div>
-
 
         <div class="form-group col-md-4">
             <x-form.select wire:model='business.time_zone' name='business.time_zone' label="Select time zone"
@@ -87,45 +98,10 @@
     </div>
 </div>
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/css/plugins/bootstrap-datepicker3.min.css">
-    <link rel="stylesheet" href="{{ asset('dashboard') }}/assets/css/plugins/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/plugins/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 @push('scripts')
-    <script src="{{ asset('dashboard') }}/assets/js/plugins/bootstrap-datepicker.min.js"></script>
-    <script src="{{ asset('dashboard') }}/assets/js/plugins/bootstrap-timepicker.min.js"></script>
-
-    <script>
-        //date picker _______________
-        arrows = {
-            leftArrow: '<i class="feather icon-chevron-left"></i>',
-            rightArrow: '<i class="feather icon-chevron-right"></i>'
-        }
-
-        $('#pc-datepicker-3, #pc-datepicker-3_validate').datepicker({
-            todayBtn: "linked",
-            clearBtn: true,
-            todayHighlight: true,
-            templates: arrows,
-            format: "dd-mm-yyyy"
-        });
-
-        //time picker__________________
-        $.fn.timepicker.defaults = $.extend(true, {}, $.fn.timepicker.defaults, {
-            icons: {
-                up: 'feather icon-chevron-up',
-                down: 'feather icon-chevron-down'
-            }
-        });
-        // minimum setup
-        $('#pc-timepicker-1, #pc-timepicker-1-modal').timepicker();
-
-        // minimum setup
-        $('#pc-timepicker-2, #pc-timepicker-2-modal').timepicker({
-            minuteStep: 1,
-            defaultTime: '',
-            showSeconds: true,
-            showMeridian: false,
-            snapToStep: true
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+    <script src="{{ asset('dashboard/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 @endpush

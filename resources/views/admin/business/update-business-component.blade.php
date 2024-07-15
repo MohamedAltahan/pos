@@ -6,7 +6,8 @@
         @method('PUT')
         <div class="row">
             <div class="col-md-3 col-sm-12">
-                <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <ul wire:ignore class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                    aria-orientation="vertical">
 
                     <li><a class="nav-link text-start active" id="v-pills-home-tab" data-bs-toggle="pill"
                             href="#v-pills-home" role="tab" aria-controls="v-pills-home"
@@ -20,9 +21,12 @@
                             href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
                             aria-selected="false">{{ __('Purchase') }}</a>
                     </li>
-                    <li><a class="nav-link text-start" id="v-pills-settings-tab" data-bs-toggle="pill"
-                            href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                            aria-selected="false">{{ __('Tax') }}</a>
+                    <li><a class="nav-link text-start" id="v-pills-tax-tab" data-bs-toggle="pill" href="#v-pills-tax"
+                            role="tab" aria-controls="v-pills-tax" aria-selected="false">{{ __('Tax') }}</a>
+                    </li>
+                    <li><a class="nav-link text-start" id="v-pills-system-tab" data-bs-toggle="pill"
+                            href="#v-pills-system" role="tab" aria-controls="v-pills-system"
+                            aria-selected="false">{{ __('System') }}</a>
                     </li>
 
                 </ul>
@@ -34,6 +38,7 @@
                     @include('admin.business.partials.product-setting')
                     @include('admin.business.partials.purchase-setting')
                     @include('admin.business.partials.tax-setting')
+                    @include('admin.business.partials.system-setting')
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+<div class="tab-pane fade" id="v-pills-tax" role="tabpanel" aria-labelledby="v-pills-tax-tab">
     <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur
         reprehenderit consectetur elit id dolor proident in cupidatat
         officia. Voluptate excepteur commodo labore nisi cillum duis

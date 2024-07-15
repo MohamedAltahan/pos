@@ -5,14 +5,17 @@
     'class' => '',
     'label' => '',
     'placeholder' => '',
-    'id' => '',
+    'checked' => false,
+    'disabled' => false,
 ])
 @if ($label)
-    <label for="{{ $id }}">{{ __($label) }}</label>
+    <label for="">{{ __($label) }}</label>
 @endif
 
 <input type="{{ $type }}" name="{{ $name }}" value='{{ old($name, $value) }}'
-    class="form-control {{ $class }}" placeholder="{{ __($placeholder) }}" {{ $attributes }}>
+    class="form-control {{ $class }}" placeholder="{{ __($placeholder) }}"
+    @if ($checked) checked @endif @if ($disabled) disabled @endif
+    {{ $attributes }}>
 
 @error($name)
     <div class="text-danger">
