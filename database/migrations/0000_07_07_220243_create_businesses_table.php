@@ -61,6 +61,8 @@ return new class extends Migration
 
             $table->boolean('enable_help_text')->default(1);
 
+            $table->json('email_setting')->nullable();
+
             $table->timestamps();
         });
     }

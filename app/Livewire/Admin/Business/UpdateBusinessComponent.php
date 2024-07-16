@@ -17,15 +17,18 @@ class UpdateBusinessComponent extends Component
     use WithFileUploads;
     public  $business;
     public $logo = null;
+    public $emailSetting;
 
 
     public function mount()
     {
         $this->business = Business::first();
+        $this->emailSetting = json_decode($this->business->email_setting, true);
     }
 
     public function submit()
     {
+
         $this->validate();
 
         if ($this->logo != null) {
@@ -34,6 +37,7 @@ class UpdateBusinessComponent extends Component
             $this->business->logo = $logoPath;
         }
 
+        $this->business->email_setting = json_encode($this->emailSetting);
         $this->business->save();
         flash(__('Saved successfully'));
     }
@@ -42,7 +46,11 @@ class UpdateBusinessComponent extends Component
     {
         $this->validateOnly('logo');
     }
-
+    //send test email
+    public function sendTestEmail()
+    {
+        dd('hello');
+    }
     public function rules()
     {
         return [
@@ -75,6 +83,14 @@ class UpdateBusinessComponent extends Component
             'business.enable_editing_product_from_purchase' => 'boolean',
             //system
             'business.enable_help_text' => 'boolean',
+            //email saved as json
+            'emailSetting.host' => 'sometimes|string|max:100',
+            'emailSetting.port' => 'sometimes|numeric',
+            'emailSetting.username' => 'sometimes|string|max:100',
+            'emailSetting.password' => 'sometimes|string|max:50',
+            'emailSetting.encryption' => 'sometimes|string|max:100',
+            'emailSetting.fromName' => 'sometimes|string|max:100',
+            'emailSetting.fromEmail' => 'sometimes|string|max:100|email',
 
         ];
     }

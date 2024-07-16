@@ -28,6 +28,10 @@
                             href="#v-pills-system" role="tab" aria-controls="v-pills-system"
                             aria-selected="false">{{ __('System') }}</a>
                     </li>
+                    <li><a class="nav-link text-start" id="v-pills-email-tab" data-bs-toggle="pill"
+                            href="#v-pills-email" role="tab" aria-controls="v-pills-email"
+                            aria-selected="false">{{ __('Email') }}</a>
+                    </li>
 
                 </ul>
             </div>
@@ -39,6 +43,7 @@
                     @include('admin.business.partials.purchase-setting')
                     @include('admin.business.partials.tax-setting')
                     @include('admin.business.partials.system-setting')
+                    @include('admin.business.partials.email-setting')
                 </div>
             </div>
         </div>

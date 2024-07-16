@@ -21,7 +21,16 @@ class BusinessSeeder extends Seeder
             'email' => 'admin@test.com',
             'currency' => 'EGP',
             'time_zone' => 'Africa/Cairo',
-            'start_date' => date('Y-m-d', time())
+            'start_date' => date('Y-m-d', time()),
+            'email_setting' => '{
+            "host":"",
+            "port":"",
+            "username":"",
+            "password":"",
+            "encryption":"",
+            "fromEmail":"",
+            "fromName":""
+            }'
         ]);
     }
 }
