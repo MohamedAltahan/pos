@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\BusinessController;
-use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\Settings\BusinessController;
+use App\Http\Controllers\Admin\Dashboard\HomeController;
+use App\Http\Controllers\Admin\Settings\InvoiceController;
 use App\Http\Controllers\Install\InstallController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,8 @@ Route::middleware(['shouldInstall', 'auth'])->group(function () {
 });
 
 Route::middleware(['shouldInstall'])->group(function () {
-    Route::get('business/setting', [BusinessController::class, 'getBusinessSetting'])->name('business.setting');
+    Route::get('settings/business', [BusinessController::class, 'getBusinessSetting'])->name('settings.business');
+    Route::get('settings/invoice', [InvoiceController::class, 'getInvoiceSetting'])->name('settings.invoice');
 });
 
 require __DIR__ . '/auth.php';

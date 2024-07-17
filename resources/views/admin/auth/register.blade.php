@@ -4,7 +4,7 @@
 <head>
     @include('layouts.shared/title-meta', ['title' => 'Register'])
     @include('layouts.shared/head-css')
-    @vite(['resources/js/head.js'])
+    {{-- @vite(['resources/js/head.js']) --}}
 </head>
 
 <body class="authentication-bg">
@@ -410,7 +410,7 @@
         </span>
     </footer>
 
-    @vite(['resources/js/app.js'])
+    {{-- @vite(['resources/js/app.js']) --}}
     @include('layouts.shared/footer-script')
 </body>
 

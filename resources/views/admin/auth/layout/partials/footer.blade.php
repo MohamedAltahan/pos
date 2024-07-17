@@ -5,5 +5,5 @@
         </script> ©
     </span>
 </footer>
-@vite(['resources/js/app.js'])
+{{-- @vite(['resources/js/app.js']) --}}
 @include('admin.layouts.shared/footer-script')

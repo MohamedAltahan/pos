@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    @include('layouts.shared/title-meta', ['title' => 'Lock Screen'])
-    @include('layouts.shared/head-css')
-    @vite(['resources/js/head.js'])
-</head>
+    <head>
+        @include('layouts.shared/title-meta', ['title' => 'Lock Screen'])
+        @include('layouts.shared/head-css')
+        {{-- @vite(['resources/js/head.js']) --}}
+    </head>
 
     <body class="authentication-bg">
 
         <div class="position-absolute start-0 end-0 start-0 bottom-0 w-100 h-100">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1920 1028">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="100%" preserveAspectRatio="none"
+                viewBox="0 0 1920 1028">
                 <g mask="url(&quot;#SvgjsMask1166&quot;)" fill="none">
                     <use xlink:href="#SvgjsSymbol1173" x="0" y="0"></use>
                     <use xlink:href="#SvgjsSymbol1173" x="0" y="720"></use>
@@ -89,7 +91,8 @@
                     <use xlink:href="#SvgjsPath1167" x="270" y="450" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1169" x="270" y="510" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1169" x="270" y="570" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
-                    <use xlink:href="#SvgjsPath1172" x="270" y="630" stroke="rgba(var(--ct-primary-rgb), 0.20)" stroke-width="3"></use>
+                    <use xlink:href="#SvgjsPath1172" x="270" y="630" stroke="rgba(var(--ct-primary-rgb), 0.20)"
+                        stroke-width="3"></use>
                     <use xlink:href="#SvgjsPath1171" x="270" y="690" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1167" x="330" y="30" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1168" x="330" y="90" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
@@ -125,11 +128,13 @@
                     <use xlink:href="#SvgjsPath1167" x="450" y="450" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1171" x="450" y="510" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1170" x="450" y="570" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
-                    <use xlink:href="#SvgjsPath1172" x="450" y="630" stroke="rgba(var(--ct-primary-rgb), 0.20)" stroke-width="3"></use>
+                    <use xlink:href="#SvgjsPath1172" x="450" y="630" stroke="rgba(var(--ct-primary-rgb), 0.20)"
+                        stroke-width="3"></use>
                     <use xlink:href="#SvgjsPath1168" x="450" y="690" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1167" x="510" y="30" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1169" x="510" y="90" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
-                    <use xlink:href="#SvgjsPath1172" x="510" y="150" stroke="rgba(var(--ct-primary-rgb), 0.20)" stroke-width="3"></use>
+                    <use xlink:href="#SvgjsPath1172" x="510" y="150" stroke="rgba(var(--ct-primary-rgb), 0.20)"
+                        stroke-width="3"></use>
                     <use xlink:href="#SvgjsPath1171" x="510" y="210" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1169" x="510" y="270" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
                     <use xlink:href="#SvgjsPath1168" x="510" y="330" stroke="rgba(var(--ct-primary-rgb), 0.20)"></use>
@@ -190,9 +195,10 @@
                             </div>
 
                             <div class="card-body p-4">
-                                
+
                                 <div class="text-center w-75 m-auto">
-                                    <img src="/images/users/avatar-1.jpg" height="64" alt="user-image" class="rounded-circle shadow">
+                                    <img src="/images/users/avatar-1.jpg" height="64" alt="user-image"
+                                        class="rounded-circle shadow">
                                     <h4 class="text-dark-50 text-center mt-3 fw-bold">Hi ! Tosha </h4>
                                     <p class="text-muted mb-4">Enter your password to access the admin.</p>
                                 </div>
@@ -200,21 +206,25 @@
                                 <form action="#">
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="password"
+                                            placeholder="Enter your password">
                                     </div>
 
                                     <div class="mb-0 text-center">
                                         <button class="btn btn-primary" type="submit">Log In</button>
                                     </div>
                                 </form>
-                                
+
                             </div> <!-- end card-body-->
                         </div>
                         <!-- end card-->
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p class="text-muted bg-body">Not you? return <a href="{{ route('second', ['auth', 'login']) }}" class="text-muted ms-1 link-offset-3 text-decoration-underline"><b>Sign In</b></a></p>
+                                <p class="text-muted bg-body">Not you? return <a
+                                        href="{{ route('second', ['auth', 'login']) }}"
+                                        class="text-muted ms-1 link-offset-3 text-decoration-underline"><b>Sign
+                                            In</b></a></p>
                             </div> <!-- end col -->
                         </div>
                         <!-- end row -->
@@ -228,12 +238,15 @@
         <!-- end page -->
 
         <footer class="footer footer-alt fw-medium">
-            <span class="bg-body"><script>document.write(new Date().getFullYear())</script> © Attex - Coderthemes.com</span>
+            <span class="bg-body">
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> © Attex - Coderthemes.com
+            </span>
         </footer>
 
-    @vite(['resources/js/app.js'])
-    @include('layouts.shared/footer-script')
-</body>
+        {{-- @vite(['resources/js/app.js']) --}}
+        @include('layouts.shared/footer-script')
+    </body>
 
 </html>
-

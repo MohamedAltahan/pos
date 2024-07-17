@@ -38,12 +38,12 @@
 
             <div class="col-md-9 col-sm-12">
                 <div class="tab-content" id="v-pills-tabContent">
-                    @include('admin.business.partials.business-setting')
-                    @include('admin.business.partials.product-setting')
-                    @include('admin.business.partials.purchase-setting')
-                    @include('admin.business.partials.tax-setting')
-                    @include('admin.business.partials.system-setting')
-                    @include('admin.business.partials.email-setting')
+                    @include('admin.settings.business.partials.business-setting')
+                    @include('admin.settings.business.partials.product-setting')
+                    @include('admin.settings.business.partials.purchase-setting')
+                    @include('admin.settings.business.partials.tax-setting')
+                    @include('admin.settings.business.partials.system-setting')
+                    @include('admin.settings.business.partials.email-setting')
                 </div>
             </div>
         </div>

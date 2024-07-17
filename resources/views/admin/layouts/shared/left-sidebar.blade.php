@@ -31,8 +31,10 @@
                                         class="feather icon-menu"></i></span><span
                                     class="pcoded-mtext">{{ __('Setting') }}</span></a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="{{ route('business.setting') }}"
+                                <li class=""><a href="{{ route('settings.business') }}"
                                         class="">{{ __('Business') }}</a></li>
+                                <li class=""><a href="{{ route('settings.invoice') }}"
+                                        class="">{{ __('Invoice') }}</a></li>
                                 {{-- <li class="pcoded-hasmenu">
                                     <a href="#!" class="">Menu level 2.2</a>
                                     <ul class="pcoded-submenu">
@@ -41,6 +43,7 @@
                                 </li> --}}
                             </ul>
                         </li>
+
 
                         {{-- <li data-username="Menu levels Menu level 2.1 Menu level 2.2" class="nav-item pcoded-hasmenu">
                             <a href="#!" class="nav-link"><span class="pcoded-micon"><i

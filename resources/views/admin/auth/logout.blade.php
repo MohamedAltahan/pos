@@ -4,7 +4,7 @@
     <head>
         @include('layouts.shared/title-meta', ['title' => 'Log Out'])
         @include('layouts.shared/head-css')
-        @vite(['resources/js/head.js'])
+        {{-- @vite(['resources/js/head.js']) --}}
     </head>
 
     <body class="authentication-bg position-relative">
@@ -77,7 +77,7 @@
                 </script> © Attex - Coderthemes.com
             </span>
         </footer>
-        @vite(['resources/js/app.js'])
+        {{-- @vite(['resources/js/app.js']) --}}
         @include('layouts.shared/footer-script')
     </body>
 

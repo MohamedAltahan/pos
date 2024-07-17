@@ -6,7 +6,7 @@
 //     $enable_purchase_status, $enable_editing_product_from_purchase, $enable_inline_tax, $currency_symbol_placement,
 //     $date_format, $time_format, $currency_precision, $quantity_precision, $theme_color, $is_active;
 
-namespace App\Livewire\Admin\Business;
+namespace App\Livewire\Admin\Settings\Business;
 
 use App\Models\Business;
 use Livewire\Component;
@@ -97,6 +97,6 @@ class UpdateBusinessComponent extends Component
 
     public function render()
     {
-        return view('admin.business.update-business-component');
+        return view('admin.settings.business.update-business-component');
     }
 }

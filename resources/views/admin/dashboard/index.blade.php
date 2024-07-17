@@ -1,5 +1,4 @@
 @extends('admin.layouts.master')
-@section('title', __('Business setting'))
 @section('content')
     <!-- [ breadcrumb ] start -->
     <div class="page-header">
@@ -19,6 +18,12 @@
     </div>
     <!-- [ breadcrumb ] end -->
 
-    @livewire('admin.business.update-business-component')
-
+    <div class="card border">
+        <div class="card-header">
+            <h5>Form controls</h5>
+        </div>
+        <div class="card-body">
+            <h1>dsjflk</h1>
+        </div>
+    </div>
 @endsection
