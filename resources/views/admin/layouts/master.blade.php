@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/plugins/animation/css/animate.min.css">
         <!-- vendor css -->
         <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/css/style.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 
         {{-- <link rel="stylesheet" href="{{ asset('dashboard/assets') }}/css/plugins/notifier.css"> --}}
         @stack('styles')
@@ -56,6 +57,27 @@
                     <div class="pcoded-inner-content">
                         <div class="main-body">
                             <div class="page-wrapper">
+
+                                <!-- [ breadcrumb ] start -->
+                                <div class="page-header">
+                                    <div class="page-block">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-12">
+                                                {{-- <div class="page-header-title">
+                                                    <h5>{{ __('Invoice') }}</h5>
+                                                </div> --}}
+                                                <ul class="breadcrumb">
+                                                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i
+                                                                class="feather icon-home"></i></a></li>
+                                                    @section('breadcrumb')
+                                                    @show
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- [ breadcrumb ] end -->
+
                                 @yield('content')
                             </div>
                         </div>
@@ -68,11 +90,13 @@
 
 
         <!-- Required Js -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> --}}
+
         <script src="{{ asset('dashboard/assets') }}/js/vendor-all.min.js"></script>
         <script src="{{ asset('dashboard/assets') }}/plugins/bootstrap/js/bootstrap.min.js"></script>
         <script src="{{ asset('dashboard/assets') }}/js/pcoded.min.js"></script>
+        <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
 
         @stack('scripts')
     </body>

@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-    public function getInvoiceSetting(UsersDataTable $dataTable)
+    public function getInvoiceSetting()
     {
-        return $dataTable->render('admin.settings.invoice.index');
+        return view('admin.settings.invoice.index');
     }
 }
