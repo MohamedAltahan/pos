@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'POS'),
+    'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', true),
+    'debug' => (bool) env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,9 +95,9 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'base64:CkM51AII9pNXIeCKWB1w65aMXGG4WSmXc0AqZwBIBUI='),
-
     'cipher' => 'AES-256-CBC',
+
+    'key' => env('APP_KEY'),
 
     'previous_keys' => [
         ...array_filter(

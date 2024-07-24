@@ -2,10 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Ramsey\Uuid\Type\Decimal;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $asset_v = config('constants.asset_version', 1);
-        View::share('asset_v', $asset_v);
+        //
     }
 }

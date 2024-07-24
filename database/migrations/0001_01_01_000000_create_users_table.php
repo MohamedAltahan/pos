@@ -13,19 +13,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->enum('user_type', ['user', 'admin', 'owner'])->default('user');
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->text('message')->nullable(); //used to alert a user with something
-            $table->text('bank_details')->nullable();
-            $table->string('language')->default('en');
-            $table->string('username')->unique();
-            $table->string('email')->unique()->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->foreignId('business_id')->constrained('businesses')->cascadeOnDelete();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
